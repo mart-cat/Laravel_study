@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products = [
-            ["name" => "Orange", "cost" => 58800000, "amount" => 27],
-            ["name" => "Banana", "cost" => 128808069, "amount" => 17],
-            ["name" => "Bread", "cost" => 79006088, "amount" => 8],
-        ];
+        $products = Product::all(); // Получаем все продукты из базы данных
 
         return view('products.index', compact('products'));
+         // Возвращаем представление 'products.index', 
+         //передавая в него массив с данными о продуктах
     }
 }
