@@ -10,10 +10,10 @@ class Order extends Model
     use HasFactory;
  // Указываем поля, которые могут быть массово присвоены
     protected $fillable = [
-        'user_id',
-        'name',
         'product_id',
+        'name',
         'amount',
         'total_amount',
+        'user_id',
     ];
 }

@@ -7,6 +7,7 @@
 </head>
 
 <body>
+@include('components.header')
     <div class="container">
         <h1>Products</h1>
         <div class="row">

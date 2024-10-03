@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+@include('components.header')
     <div class="container mt-5">
         <h1 class="text-center">{{ $product->name }}</h1>
         <div class="card mb-2">
