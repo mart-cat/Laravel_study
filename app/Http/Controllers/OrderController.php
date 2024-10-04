@@ -19,6 +19,9 @@ class OrderController extends Controller
     
     public function store(Request $request)
     {
+        // Получаем продукт
+        $product = Product::findOrFail($request->product_id);
+
         if (!Auth::check()) {
             return redirect()->route('login')->with('error', 'Вы должны войти в систему, чтобы создать заказ.');
         }
@@ -26,11 +29,10 @@ class OrderController extends Controller
         // Валидация входящих данных
         $request->validate([
             'product_id' => 'required|exists:products,id',
-            'amount' => 'required|integer|min:1',
+            'amount' => 'required|integer|min:1|max:' . $product ->amount,
         ]);
     
-        // Получаем продукт
-        $product = Product::findOrFail($request->product_id);
+        
     
         // Вычисляем общую сумму
         $totalAmount = $product->cost * $request->amount;

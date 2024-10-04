@@ -12,7 +12,7 @@ class LoginController extends Controller
 {
     public function showLoginForm()
     {
-        return view('auth.log'); // возвращаем представление с формой входа
+        return view('auth.login'); // возвращаем представление с формой входа
     }
 
     public function login(Request $request)

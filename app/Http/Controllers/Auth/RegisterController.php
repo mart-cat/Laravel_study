@@ -21,6 +21,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            //магия, он просто вериит что будет такое же поле с __confirmation
         ]);
 
         if ($validator->fails()) {
@@ -36,6 +37,6 @@ class RegisterController extends Controller
 
           // auth()->login($user); автовход
 
-        return redirect()->route('login')->with('success', 'Registration successful!');
+        return redirect()->route('login')->with('success', 'Регистрация успешна!');
     }
 }

@@ -19,16 +19,16 @@
                 <tr>
                     <th>ID Заказа</th>
                     <th>Сумма</th>
+                    <th>Количество</th>
                     <th>Дата</th>
-                    <th>Статус</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach($orders as $order)
                 <tr>
                     <td>{{ $order->name }}</td>
-                    <td>{{ $order->id }}</td>
                     <td>{{ $order->total_amount }}</td>
+                    <td>{{ $order->amount }}</td>
                     <td>{{ $order->created_at->format('d.m.Y H:i') }}</td>
 
                 </tr>
