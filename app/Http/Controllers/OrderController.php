@@ -16,6 +16,7 @@ class OrderController extends Controller
 
         return view('orders.index', compact('orders'));
     }
+
     
     public function store(Request $request)
     {
@@ -44,7 +45,11 @@ class OrderController extends Controller
             'amount' => $request->amount,
             'total_amount' => $totalAmount,
             'user_id' => Auth::id(), // Сохранение id текущего пользователя
+            'status' => 2,
+          
         ]);
+
+        
 
         
     

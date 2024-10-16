@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\AdminController;
 
 // Главная страница
 Route::get('/', function () {
@@ -22,5 +23,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [RegisterController::class, 'register']);
 
-
 Route::get('/my-orders', [OrderController::class, 'index'])->name('orders.index')->middleware('auth');
+
+Route::get('/admin', [AdminController::class, 'admin'])->name('admin.index');
+Route::post('/admin/orders/update-status/{order}', [AdminController::class, 'updateStatus'])->name('admin.updateStatus');
+Route::get('/admin/orders', [AdminController::class, 'admin'])->name('admin.orders.index');
+

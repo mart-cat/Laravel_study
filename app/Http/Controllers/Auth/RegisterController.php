@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers\Auth;
-
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -29,14 +29,14 @@ class RegisterController extends Controller
         }
 
         // Создание нового пользователя
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
-          // auth()->login($user); автовход
+        Auth::login($user);
 
-        return redirect()->route('login')->with('success', 'Регистрация успешна!');
+        return redirect()->route('product.index')->with('success', 'Регистрация успешна!');
     }
 }

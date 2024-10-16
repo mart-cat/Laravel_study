@@ -21,6 +21,7 @@
                     <th>Сумма</th>
                     <th>Количество</th>
                     <th>Дата</th>
+                    <th>Cтатус</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,7 +31,19 @@
                     <td>{{ $order->total_amount }}</td>
                     <td>{{ $order->amount }}</td>
                     <td>{{ $order->created_at->format('d.m.Y H:i') }}</td>
-
+                    <td> @switch($order->status)
+                        @case(1)
+                        Новый
+                        @break
+                        @case(2)
+                        Одобрен
+                        @break
+                        @case(3)
+                        Доставлен
+                        @break
+                        @default
+                        Неизвестный статус
+                        @endswitch</td>
                 </tr>
                 @endforeach
             </tbody>
