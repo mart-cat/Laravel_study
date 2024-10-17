@@ -18,6 +18,8 @@ class OrderController extends Controller
     }
 
     
+
+    
     public function store(Request $request)
     {
         // Получаем продукт
@@ -49,10 +51,6 @@ class OrderController extends Controller
           
         ]);
 
-        
-
-        
-    
         // Обновляем количество продукта
         $product->amount -= $request->amount;
         $product->save();
