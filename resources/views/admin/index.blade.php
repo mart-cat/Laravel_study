@@ -26,7 +26,8 @@
                     @foreach($orders as $order)
                     <tr>
                         <td>{{ $order->name }}</td>
-                        <td>{{ $order->user->email }}</td>
+                        <td>{{ $order->user ? $order->user->email : 'Нет пользователя' }}</td>
+
                         <td>{{ $order->total_amount }}</td>
                         <td>{{ $order->amount }}</td>
                         <td>{{ $order->created_at->format('d.m.Y H:i') }}</td>

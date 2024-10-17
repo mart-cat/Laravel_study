@@ -26,9 +26,7 @@
         <div class="form-group">
             <label for="password">Пароль</label>
             <input type="password" class="form-control" id="password" name="password" required>
-            @error('password')
-                <span class="text-danger">{{ $message }}</span>
-            @enderror
+           
         </div>
 
         <button type="submit" class="btn btn-primary">Войти</button>
