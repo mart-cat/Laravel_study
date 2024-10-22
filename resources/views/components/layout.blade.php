@@ -13,7 +13,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 @if(Auth::check())
-
                 @if(Auth::user()->is_admin)
                 <li class="nav-item">
 
