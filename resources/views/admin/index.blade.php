@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>Заказы</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-<body>
-    @include('components.header')
+<x-layout>
     <div class="container">
         <h1>Заказы</h1>
         <table>
@@ -62,3 +53,4 @@
         }
     }
     </script>
+</x-layout>
